@@ -8,6 +8,4 @@ module Defuser
       end
     end
   end
-
-  register_series(DecreasingMultiplierSeries)
 end

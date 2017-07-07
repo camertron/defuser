@@ -30,6 +30,4 @@ module Defuser
       end
     end
   end
-
-  register_series(IncreasingDivisorSeries)
 end

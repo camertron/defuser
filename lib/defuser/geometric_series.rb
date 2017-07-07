@@ -18,7 +18,6 @@ module Defuser
       def steps(arr, diffs)
         arr.each_cons_pair.map.with_index do |(first, second), idx|
           ExprNode.new(:eq, ExprNode.new(:plus, first, diffs[idx]), second)
-          # "#{first} + #{diffs[idx]} = #{second}"
         end
       end
 
@@ -27,6 +26,4 @@ module Defuser
       end
     end
   end
-
-  register_series(GeometricSeries)
 end

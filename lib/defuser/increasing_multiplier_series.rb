@@ -24,12 +24,9 @@ module Defuser
 
       def steps(arr, starting_multiplier)
         arr.each_cons_pair.map.with_index do |(first, second), idx|
-          ExprNode.new(:eq, ExprNode.new(:mult, first, starting_multiplier), second)
-          # "#{first} * #{starting_multiplier + idx} = #{second}"
+          ExprNode.new(:eq, ExprNode.new(:mult, first, starting_multiplier + idx), second)
         end
       end
     end
   end
-
-  register_series(IncreasingMultiplierSeries)
 end

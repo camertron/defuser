@@ -19,11 +19,8 @@ module Defuser
       def steps(arr, divisor)
         arr.each_cons_pair.map do |first, second|
           ExprNode.new(:eq, ExprNode.new(:div, first, divisor), second)
-          # "#{first} / #{divisor} = #{second}"
         end
       end
     end
   end
-
-  register_series(DivisorSeries)
 end

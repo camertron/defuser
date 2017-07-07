@@ -19,11 +19,8 @@ module Defuser
       def steps(arr, multiplier)
         arr.each_cons_pair.map do |first, second|
           ExprNode.new(:eq, ExprNode.new(:mult, first, multiplier), second)
-          # "#{first} * #{multiplier} = #{second}"
         end
       end
     end
   end
-
-  register_series(MultiplierSeries)
 end

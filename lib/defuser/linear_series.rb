@@ -18,11 +18,8 @@ module Defuser
         arr.each_cons_pair.map do |first, second|
           difference ||= second - first
           ExprNode.new(:eq, ExprNode.new(:plus, first, difference), second)
-          # "#{first} + #{difference} = #{second}"
         end
       end
     end
   end
-
-  register_series(LinearSeries)
 end
