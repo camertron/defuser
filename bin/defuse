@@ -1,4 +1,5 @@
 require 'defuser'
+require 'readline'
 
 def parse_num(str)
   !str.include?('.') || str =~ /\.0+\z/ ? str.to_i : str.to_f
@@ -7,14 +8,14 @@ end
 puts 'Welcome to the Fuse Clues de-fuser!'
 puts 'Math is hard, give yourself a break®'
 
-STDOUT.write "What's the circuit? (comma-separated, enter 'none' for missing fuses): "
-circuit = gets.split(',').map do |s|
+circuit_str = Readline.readline("What's the circuit? (comma-separated, enter 'none' for missing fuses): ")
+circuit = circuit_str.split(',').map do |s|
   s = s.strip.downcase
   s == 'none' ? nil : parse_num(s)
 end
 
-STDOUT.write "What are the fuse options? (comma-separated): "
-fuses = gets.split(',').map { |s| parse_num(s.strip) }
+fuse_str = Readline.readline("What are the fuse options? (comma-separated): ")
+fuses = fuse_str.split(',').map { |s| parse_num(s.strip) }
 
 puzzle = Defuser::Puzzle.new(circuit, fuses)
 solution = Defuser::Solver.solve(puzzle)
