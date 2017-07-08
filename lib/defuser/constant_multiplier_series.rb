@@ -23,6 +23,10 @@ module Defuser
         EmptySeriesMatch.instance
       end
 
+      def description
+        'constant multiplier series'
+      end
+
       private
 
       def steps(arr, multiplier)

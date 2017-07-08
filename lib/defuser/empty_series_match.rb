@@ -1,7 +1,11 @@
 module Defuser
   class EmptySeriesMatch
-    def self.instance
-      @instance ||= new
+    class << self
+      def instance
+        @instance ||= new
+      end
+
+      private :new
     end
 
     def empty?
@@ -11,7 +15,5 @@ module Defuser
     def matched?
       false
     end
-
-    private :initialize
   end
 end

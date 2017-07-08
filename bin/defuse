@@ -1,0 +1,32 @@
+require 'defuser'
+
+def parse_num(str)
+  !str.include?('.') || str =~ /\.0+\z/ ? str.to_i : str.to_f
+end
+
+puts 'Welcome to the Fuse Clues de-fuser!'
+puts 'Math is hard, give yourself a break®'
+
+STDOUT.write "What's the circuit? (comma-separated, enter 'none' for missing fuses): "
+circuit = gets.split(',').map do |s|
+  s = s.strip.downcase
+  s == 'none' ? nil : parse_num(s)
+end
+
+STDOUT.write "What are the fuse options? (comma-separated): "
+fuses = gets.split(',').map { |s| parse_num(s.strip) }
+
+puzzle = Defuser::Puzzle.new(circuit, fuses)
+solution = Defuser::Solver.solve(puzzle)
+
+if solution.empty?
+  puts "Aw dang, couldn't find a solution to that one :("
+  exit 1
+end
+
+puts "Hmm, that looks like a #{solution.series.description}!"
+puts "Give this a try: #{solution.sequence.join(', ')}"
+puts "Here's what I'm thinking:"
+solution.steps.each do |step|
+  puts step.normalize!.to_s
+end

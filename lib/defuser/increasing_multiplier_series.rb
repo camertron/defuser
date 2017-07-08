@@ -20,6 +20,10 @@ module Defuser
         EmptySeriesMatch.instance
       end
 
+      def description
+        'increasing multiplier series'
+      end
+
       private
 
       def steps(arr, starting_multiplier)

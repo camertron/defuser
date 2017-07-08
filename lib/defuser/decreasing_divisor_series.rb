@@ -6,6 +6,10 @@ module Defuser
       def match(arr)
         EmptySeriesMatch.instance
       end
+
+      def description
+        'decreasing divisor series'
+      end
     end
   end
 end

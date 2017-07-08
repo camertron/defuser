@@ -12,6 +12,10 @@ module Defuser
         SeriesMatch.new(self, arr.to_a, steps(arr))
       end
 
+      def description
+        'linear series'
+      end
+
       private
 
       def steps(arr)

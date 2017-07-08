@@ -16,11 +16,11 @@ module Defuser
       end
     end
 
+    private
+
     def num_missing
       circuit.count { |elem| elem.nil? }
     end
-
-    private
 
     def normalize!
       if float_normalize?

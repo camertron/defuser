@@ -20,6 +20,10 @@ module Defuser
         EmptySeriesMatch.instance
       end
 
+      def description
+        'increasing divisor series'
+      end
+
       private
 
       def sequence(arr, divisor)

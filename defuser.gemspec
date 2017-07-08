@@ -14,5 +14,7 @@ Gem::Specification.new do |s|
   s.has_rdoc = true
 
   s.require_path = 'lib'
+  s.executables  = ['defuse']
+
   s.files = Dir['{lib,spec}/**/*', 'README.md', 'defuser.gemspec', 'LICENSE']
 end

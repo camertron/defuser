@@ -14,6 +14,10 @@ module Defuser
         SeriesMatch.new(self, arr.to_a, steps(arr, divisor))
       end
 
+      def description
+        'divisor series'
+      end
+
       private
 
       def steps(arr, divisor)

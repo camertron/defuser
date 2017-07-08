@@ -8,7 +8,7 @@ module Defuser
           end
         end
 
-        nil
+        EmptySeriesMatch.instance
       end
 
       private

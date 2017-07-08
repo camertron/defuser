@@ -13,6 +13,10 @@ module Defuser
         end
       end
 
+      def description
+        'geometric series'
+      end
+
       private
 
       def steps(arr, diffs)
